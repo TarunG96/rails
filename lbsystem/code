@@ -131,3 +131,10 @@ BookIssue.create([ {:issue_date => '12-11-2017', :return_date => '25-11-2017', :
 (9 rows)
 
 
+**************************MIGRATIONS PRACTICE*********************************
+
+rails generate model hello name :string city :text
+
+rake db:migrate 
+
+rails generate migration add_age_to_hellos
