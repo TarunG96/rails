@@ -20,12 +20,20 @@
 			</div>
 		</div>
 		<div name="right_frame" align="center" style="float:left; border:2px solid black; width:881px; height:480px;">
-			<h1>Login As Admin</h1>
-			<form name="login_form" action="/admin_home" method="get">
-			Enter Username <input type="text" name="username"/><br><br>
-			Enter Password <input type="password" name="password" value=""/><br><br>
-				<input type="submit" value="Login"><br>
-				<%= link_to "Forgot your password" , "/forgot_password" %>
+			<h1>Student Registration</h1>
+		 <form name="add_student" action=""  method="post">
+			Name   <input type="text" name="student_name"/><br><br>
+			City <input type="text" name="student_city"/><br><br>
+			Email <input type="text" name="student_email"/><br><br>
+			Select department  
+				<select name="department_id">
+			  	<option value="">mechanical</option>
+		  		<option value="">computers</option>
+		  		<option value="">humanities</option>
+					<option value="">electronics</option>
+				</select><br><br>
+				<input type="submit" value="register">
+				<input type="reset" name="reset">
 			</form>
 		</div>
 		<div name="footer" align="center">

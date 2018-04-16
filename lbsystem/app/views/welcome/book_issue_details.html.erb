@@ -20,13 +20,30 @@
 			</div>
 		</div>
 		<div name="right_frame" align="center" style="float:left; border:2px solid black; width:881px; height:480px;">
-			<h1>Login As Admin</h1>
-			<form name="login_form" action="/admin_home" method="get">
-			Enter Username <input type="text" name="username"/><br><br>
-			Enter Password <input type="password" name="password" value=""/><br><br>
-				<input type="submit" value="Login"><br>
-				<%= link_to "Forgot your password" , "/forgot_password" %>
-			</form>
+			<h1>Book Issue Details</h1>
+		 	<table name="book_issue_records" border = "1">
+	      <tr>
+	        <td>Issue Id</td>
+	        <td>Book Name</td>
+	        <td>Book ID</td>
+	        <td>Student Name</td>
+	        <td>Student Id</td>
+	      </tr>
+	      <tr>
+	        <td></td>
+	        <td></td>
+	        <td></td>
+	        <td></td>
+	      	<td></td>
+	      </tr>
+	      <tr>
+	        <td></td>
+	        <td></td>
+	        <td></td>
+	        <td></td>
+	      	<td></td>
+	      </tr>
+	 		</table>
 		</div>
 		<div name="footer" align="center">
 			<%= link_to "HOME","/index" %>
