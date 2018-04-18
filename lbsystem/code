@@ -244,3 +244,34 @@ _-> acceptance method : validates that a checkbox was ticked while submiiting a 
   end
 
 -> validates_each : validates attributes against a block. Every attribute is validated against block.
+
+************ VALIDATIONS OPTIONS ********
+
+-> allow_nill:    
+-> allow_blank:   
+-> message: it can also contain %{value},%{attribute} and %{model}
+-> on:  determines when the validation should happen
+
+*********** STRICT VALIDATIONS ********
+validations can be made strict to raise ActiveModel::StrictValidationFailed for invalid object.
+
+*********** CONDITIONAL VALIDATIONS *********
+using 'if' and 'unless' options which can take a symbol, proc or array.
+-> Using Symbol
+
+class Order < ApplicationRecord
+  validates :card_number, presence: true, if: :paid_with_card?
+ 
+  def paid_with_card?
+    payment_type == "card"
+  end
+end
+
+-> Using proc
+
+class Account < ApplicationRecord
+  validates :password, confirmation: true,
+    unless: Proc.new { |a| a.password.blank? }
+end
+
+********** CUSTOM VALIDATIONS **************
