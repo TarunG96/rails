@@ -14,6 +14,7 @@ class WelcomeController < ApplicationController
   end
   
   def book_issue_details
+    @book_list =BookIssue.all
   end
   
   def forgot_password

@@ -5,27 +5,18 @@
 		<h1>Book Issue Details</h1>
 	 	<table name="book_issue_records" border = "1">
       <tr>
-        <td>Issue Id</td>
-        <td>Book Name</td>
-        <td>Book ID</td>
-        <td>Student Name</td>
-        <td>Student Id</td>
-      </tr>
+        <th>Issue Id</th>
+        <th>Book ID</th>
+        <th>Student Name</th>
+     </tr>
+      <% @book_list.each do |record|%>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      	<td></td>
+        <td><%= record.id%></td>
+        <td><%= record.book_id%></td>
+      	<td><%= record.student_id%></td>
       </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      	<td></td>
-      </tr>
- 		</table>
+      <% end %>
+      </table>
 	</div>
 	<%= render partial: "footer" %>
 </body>
