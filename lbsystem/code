@@ -173,4 +173,74 @@ a.errors.messages
    (0.7ms)  BEGIN
    (0.6ms)  ROLLBACK
 
+_-> acceptance method : validates that a checkbox was ticked while submiiting a form.
+        validates :terms_of_service, acceptance: true
+    you can also pass custom message for the error
+        validates :terms_of_service, acceptance: { message: 'must be abided' }
+-> validates_associated : when ur model has associations with other models and they also need be .
+    validated
+-> confirmation : when we have two fields(text) that should accept exactly the same content.  
+      class Person < ApplicationRecord
+        validates :email, confirmation: true
+        validates :email_confirmation, presence: true
+      end
+     you can also change the check to be case insensitive.
+       validates :email, confirmation: { case_sensitive: false }
+-> format : this validates the attributes' values by testing whether they match a regular expression
+            which is specified using the with : clause
+        validates :code, format:  {with: /\A[a-zA-z]+\z/, message: "only alphabets allowed"}
+        without: clasue  => for opposite operation
+-> inclusion  : this validates attriutes' values are included in a given set.
+-> length : validates the length of attributes' values.
+    validates :name, length: { minimum: 2 }
+    validates :bio, length: { maximum: 500 }
+    validates :password, length: { in: 6..20 }
+    validates :registration_number, length: { is: 6 }
+-> numericality : This helper validates that your attributes have only numeric values. By default,
+                  it will match an optional sign followed by an integral or floating point number. To
+                  specify that only integral numbers are allowed set :only_integer to true.
+          validates :points, numericality: {option: true}
+**** IMPORTANT
+-> presence : validates that specified attributes are not empty.
 
+==>> If you want to be sure that an association is present, you'll need to test whether the associated object itself is present, and not the foreign key used to map the association.
+      class Item
+        belongs_to :order
+        validates :order, presence: true
+      end
+==>> In order to validate associated records whose presence is required, you must specify the :inverse_of option for the association:
+      class Order 
+        has_many :line_items, inverse_of: :order
+      end
+
+-> absence :  validates that the specified attributes are absent.
+    validates :name, :email, absence: true
+==>>  If you want to be sure that an association is absent, you'll need to test whether the
+      associated object itself is absent, and not the foreign key used to map the association.
+      class Item
+        belongs_to :order
+        validates :order, absence: true
+      end
+==>> In order to validate associated records whose presence is required, you must specify the 
+      :inverse_of option for the association:
+      class Order 
+        has_many :line_items, inverse_of: :order
+      end
+-> uniqueness : validates that the attribute's value is unique right before the object gets saved.
+        validates :email, uniqueness: true
+        validates :email, uniqueness: {case_sensitive: false}
+-> validates_with : passes the record to seperate classes for validation
+
+  class GoodnessValidator < ActiveModel::Validator
+    def validate(record)
+      if record.first_name == "Evil"
+        record.errors[:base] << "This person is evil"
+      end
+    end
+  end
+ 
+  class Person < ApplicationRecord
+    validates_with GoodnessValidator
+  end
+
+-> validates_each : validates attributes against a block. Every attribute is validated against block.
