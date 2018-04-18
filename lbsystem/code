@@ -138,3 +138,39 @@ rails generate model hello name :string city :text
 rake db:migrate 
 
 rails generate migration add_age_to_hellos
+
+
+********************** TESTING VALIDATIONS **************
+
+-> generated new model persons
+
+class Person < ApplicationRecord
+  validates :name,presence: true
+end
+
+a=Person.new
+ => #<Person id: nil, name: nil, age: nil, town: nil, created_at: nil, updated_at: nil> 
+2.4.2 :003 > Person.create(name: nil).valid?
+   (0.7ms)  BEGIN
+   (0.5ms)  ROLLBACK
+ => false 
+
+ a.errors.messages
+ => {} 
+
+a.valid?
+ => false 
+
+a.errors.messages
+ => {:name=>["can't be blank"]} 
+
+ a.save
+   (0.6ms)  BEGIN
+   (0.5ms)  ROLLBACK
+ => false 
+
+ a.save!
+   (0.7ms)  BEGIN
+   (0.6ms)  ROLLBACK
+
+

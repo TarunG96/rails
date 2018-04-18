@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get 'book_issue_details', to:'welcome#book_issue_details'
   get 'forgot_password', to:'welcome#forgot_password'
   get 'index', to: 'welcome#index'
+  #post '/add_book', to: 'welcome#create_book'
 end

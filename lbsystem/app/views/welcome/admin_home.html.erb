@@ -1,21 +1,8 @@
-<html>
-	<head>
-		<title>
-			home
-		</title>
-	</head>
-	<body>
-		<div name="header" align="center"  style="border:2px solid black; height:90px;">
-			<h1>LIBRARY MANAGEMENT SYSTEM<h1>
-		</div>
-		<div name="left_frame"  align="center" style="float:left; border:2px solid black; width:30%;height:480px">
-			<h1>This is left div</h1>
-		</div>
-		<div name="right_frame" align="center" style="float:left; border:2px solid black; width:881px; height:480px;">
-			<h1>This is right div</h1>
-		</div>
-		<div name="footer" align="center">
-			<%= link_to "HOME","/index" %>
-		</div>
-	</body>
-</html>
+<body>
+	<%= render partial: "header" %>
+	<%= render partial: "lframe" %>
+	<div name="right_frame" align="center" style="float:left; border:2px solid black; width:881px; height:480px;">
+		<h1>This is right div</h1>
+	</div>
+	<%= render partial: "footer" %>
+</body>

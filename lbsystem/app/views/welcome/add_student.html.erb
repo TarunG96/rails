@@ -1,43 +1,22 @@
-<html>
-	<head>
-		<title>
-			home
-		</title>
-	</head>
-	<body>
-		<div name="header" align="center"  style="border:2px solid black; height:90px;">
-			<h1>LIBRARY MANAGEMENT SYSTEM<h1>
-		</div>
-		<div name="left_frame"  align="center" style="float:left; border:2px solid black; width:30%;height:480px">
-			<div name="add_book" align="center" style="border-bottom:1px solid black;height: 160px">
-				<%= link_to "Add a new book" , "/add_book" %>
-			</div>
-			<div name="add_student" align="center" style="border-bottom:1px solid black;height:160px">
-				<%= link_to "Register a New Student" , "/add_student" %>
-			</div>
-			<div name="book_issue" align="center" style="border-bottom:1px solid black;height:160px">
-				<%= link_to "View Book Issue details" , "/book_issue_details" %>
-			</div>
-		</div>
-		<div name="right_frame" align="center" style="float:left; border:2px solid black; width:881px; height:480px;">
-			<h1>Student Registration</h1>
-		 <form name="add_student" action=""  method="post">
+<body>
+	<%= render partial: "header" %>
+	<%= render partial: "lframe" %>
+	<div name="right_frame" align="center" style="float:left; border:2px solid black; width:881px; height:480px;">
+		<h1>Student Registration</h1>
+    <form name="add_student" action=""  method="post">
 			Name   <input type="text" name="student_name"/><br><br>
 			City <input type="text" name="student_city"/><br><br>
 			Email <input type="text" name="student_email"/><br><br>
 			Select department  
-				<select name="department_id">
-			  	<option value="">mechanical</option>
-		  		<option value="">computers</option>
-		  		<option value="">humanities</option>
-					<option value="">electronics</option>
-				</select><br><br>
-				<input type="submit" value="register">
-				<input type="reset" name="reset">
-			</form>
-		</div>
-		<div name="footer" align="center">
-			<%= link_to "HOME","/index" %>
-		</div>
-	</body>
-</html>
+			<select name="department_id">
+		  	<option value="">mechanical</option>
+	  		<option value="">computers</option>
+	  		<option value="">humanities</option>
+				<option value="">electronics</option>
+			</select><br><br>
+			<input type="submit" value="register">
+			<input type="reset" name="reset">
+		</form>
+	</div>
+	<%= render partial: "footer" %>
+</body>

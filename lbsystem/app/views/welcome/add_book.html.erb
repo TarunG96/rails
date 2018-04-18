@@ -1,43 +1,21 @@
-<html>
-	<head>
-		<title>
-			home
-		</title>
-	</head>
-	<body>
-		<div name="header" align="center"  style="border:2px solid black; height:90px;">
-			<h1>LIBRARY MANAGEMENT SYSTEM<h1>
-		</div>
-		<div name="left_frame"  align="center" style="float:left; border:2px solid black; width:30%;height:480px">
-			<div name="add_book" align="center" style="border-bottom:1px solid black;height: 160px">
-				<%= link_to "Add a new book" , "/add_book" %>
-			</div>
-			<div name="add_student" align="center" style="border-bottom:1px solid black;height:160px">
-				<%= link_to "Register a New Student" , "/add_student" %>
-			</div>
-			<div name="book_issue" align="center" style="border-bottom:1px solid black;height:160px">
-				<%= link_to "View Book Issue details" , "/book_issue_details" %>
-		</div>
-		</div>
-
-		<div name="right_frame" align="center" style="float:left; border:2px solid black; width:881px; height:480px;">
-			<h1>Enter Book Details</h1>
-			<form name="add_book" action=""  method="post">
-				Name<input type="text" name="book_name"/><br><br>
-				Author <input type="text" name="book_author"/><br><br>
-				Price<input type="text" name="book_price"/><br><br>
-				Select category
-				<select name="category_id">
-					<option value="">programming</option>
-					<option value="">mathematics</option>
-				  <option value="">motivational</option>
-				</select><br><br>
-				<input type="submit" value="add">
-				<input type="reset" value="reset">
-			</form>
-		</div>
-		<div name="footer" align="center">
-			<%= link_to "HOME","/index" %>
-		</div>
-	</body>
-</html>
+<body>
+	<%= render partial: "header" %>
+	<%= render partial: "lframe" %>
+	<div name="right_frame" align="center" style="float:left; border:2px solid black; width:881px; height:480px;">
+		<h1>Enter Book Details</h1>
+		<form name="add_book" action=""  method="post">
+			Name<input type="text" name="book_name"/><br><br>
+			Author <input type="text" name="book_author"/><br><br>
+			Price<input type="text" name="book_price"/><br><br>
+			Select category
+			<select name="category_id">
+				<option value="">programming</option>
+				<option value="">mathematics</option>
+			  <option value="">motivational</option>
+			</select><br><br>
+			<input type="submit" value="add">
+			<input type="reset" value="reset">
+		</form>
+	</div>
+	<%= render partial: "footer" %>
+</body>

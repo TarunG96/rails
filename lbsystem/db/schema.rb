@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180416093616) do
+ActiveRecord::Schema.define(version: 20180418071408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,14 @@ ActiveRecord::Schema.define(version: 20180416093616) do
     t.integer "age"
     t.bigint "books_id"
     t.index ["books_id"], name: "index_hellos_on_books_id"
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.string "town"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "students", force: :cascade do |t|
