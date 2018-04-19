@@ -1,0 +1,12 @@
+<body>
+	<%= render partial: "welcome/header" %>
+	<div id="admin_body" align="center">
+		<h1>Login As Admin</h1>
+		<form name="login_form" action="/home" method="get">
+			Enter Username <input type="text" name="username"/><br><br>
+			Enter Password <input type="password" name="password" value=""/><br><br>
+			<input type="submit" value="Login"><br>
+			<%= link_to "Forgot your password" , "/forgot_password" %>
+		</form>
+	</div>
+</body>
