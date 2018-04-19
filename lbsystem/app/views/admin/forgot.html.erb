@@ -1,0 +1,13 @@
+<body>
+	<%= render partial: "header" %>
+	<div name="right_frame" align="center" style=" border:2px solid black; height:480px;">
+		<h1>Request a new password</h1>
+		<form name="forgot_password_form" action="" method="get">
+			Enter Username <input type="text" name="username"/><br><br>
+			Enter Registered Email <input type="text" name="email" value=""/><br><br>
+			<input type="submit" value="Generate password request"><br>
+			<%= link_to "Home","/index" %>
+		</form>
+	</div>
+	<%= render partial: "footer" %>
+</body>

@@ -1,0 +1,33 @@
+<body>
+	<%= render partial: "admin/header" %>
+	<%= render partial: "admin/lframe" %>
+	<div name="right_frame" align="center" style="float:left; border:2px solid black; width:881px; height:480px;">
+		<h1>Enter Book Details</h1>
+    <h1>Add new book</h1>
+      <%= form_for @book do |b| %>
+        <p>
+          <%= b.label :enter_name %>
+          <%= b.text_field :name %>
+        </p>
+        <p>
+          <%= b.label :enter_author %>
+          <%= b.text_field :author %>
+        </p>
+        <p>
+          <%= b.label :enter_price %>
+          <%= b.text_field :price %>
+        </p>
+        <p>
+          <%= b.label :Category_ID %>
+          <%= b.text_field :category_id %>
+        </p>
+        <p>
+          <%= b.submit "ADD"%>
+        </p>
+        <% end %>
+		    <%= link_to 'Back', {:action => 'list'} %>
+	</div>
+	<div>
+	  <%= render partial: "admin/footer" %>
+  </div>
+</body>

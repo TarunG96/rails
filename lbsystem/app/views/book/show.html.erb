@@ -1,0 +1,24 @@
+<body>
+	<%= render partial: "admin/header" %>
+	<%= render partial: "admin/lframe" %>
+	<div name="right_frame" align="center" style="float:left; border:2px solid black; width:881px; height:480px;">
+    <h1>Books</h1>
+    <table name="books" border = "1">
+      <tr>
+        <th>NAME</th>
+        <th>Author</th>
+        <th>Price</th>
+        <th>Category ID</th>
+      </tr>
+      <tr>
+        <td><%= @book.name %></td>
+        <td><%= @book.author %></td>
+        <td><%= @book.price %></td>
+        <td><%= @book.category_id %></td>
+      </tr>
+    </table><br><br>
+    <%= link_to "Back", "/back" %><br>
+    <%= link_to "EDIT" ,'/edit' %>
+  </div>
+  <%= render partial: "admin/footer" %>
+</body>

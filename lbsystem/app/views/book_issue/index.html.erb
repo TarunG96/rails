@@ -1,0 +1,23 @@
+<body>
+  <%= render partial: "admin/header"%>
+  <%= render partial: "admin/lframe" %>
+  <div name="right_frame" align="center" style="float:left; border:2px solid black; width:881px; height:480px;">
+    <h1>Book Issue Details</h1>
+    <table name="book_issue_records" border = "1">
+      <tr>
+        <th>Issue Id</th>
+        <th>Book ID</th>
+        <th>Student Id</th>
+     </tr>
+      <% @book_list.each do |record|%>
+      <tr>
+        <td><%= record.id%></td>
+        <td><%= record.book_id%></td>
+        <td><%= record.student_id%></td>
+      </tr>
+      <% end %>
+    </table><br><br>
+    <%= link_to "Back","/back" %>
+  </div>
+  <%= render partial: "admin/footer" %>
+</body>

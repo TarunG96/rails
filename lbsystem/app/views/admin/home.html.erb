@@ -1,10 +1,10 @@
 <body>
-  <%= render partial: "welcome/header"%>
-  <%= render partial: "welcome/lframe" %>
+  <%= render partial: "header"%>
+  <%= render partial: "lframe" %>
   <div name="right_frame" align="center" style="float:left; border:2px solid black; width:881px; height:480px;">
     <h1>Select the desired option</h1>
-    <%= link_to "show book issues","/book_issues" %><br>
     <%= link_to "show books","/books" %><br>
+    <%= link_to "show students","/students" %><br>
   </div>
-  <%= render partial: "welcome/footer" %>
+  <%= render partial: "footer" %>
 </body>
