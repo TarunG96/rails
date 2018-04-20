@@ -1,6 +1,6 @@
 class BookController < ApplicationController
 
-  def list
+  def index
     @books = Book.all
   end
 
@@ -16,7 +16,11 @@ class BookController < ApplicationController
     @book=Book.new(name: params[:book][:name], author: params[:book][:author], price: params[:book][:price], category_id: params[:book][:category_id])    
     @book.save
     if @book.save
-      redirect_to :action => 'list'
+      flash[:notice] = "Record Added"  
+      redirect_to :action => 'index'
+    else
+      flash[:notice] = "Unable to add this record" 
+      render :create
     end
   end
 
@@ -25,11 +29,20 @@ class BookController < ApplicationController
   end
 
   def update
-     @book = Book.find(params[:id])
-     if @book.update_attributes(book_param)
-        redirect_to :action => 'show', :id => @book
-     else
-        render :action => 'edit'
-     end
+    @book = Book.find(params[:id])
+    if @book.update_attributes(book_param)
+      redirect_to :action => 'show', :id => @book
+    end
   end
+  
+  def destroy   
+    @book = Book.find(params[:id])   
+    if @book.delete   
+      flash[:notice] = 'Record deleted!'   
+      redirect_to :action => 'index'   
+    else   
+      flash[:error] = 'Failed to delete this book record!'   
+      render :destroy   
+    end   
+  end   
 end

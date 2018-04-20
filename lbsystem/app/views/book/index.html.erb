@@ -1,6 +1,6 @@
 <body>
-	<%= render partial: "welcome/header" %>
-	<%= render partial: "welcome/lframe" %>
+	<%= render partial: "admin/header" %>
+	<%= render partial: "admin/lframe" %>
 	<div name="right_frame" align="center" style="float:left; border:2px solid black; width:881px; height:480px;">
     <h1>Books</h1>
     <table name="book_issue_records" border = "1">
@@ -14,10 +14,14 @@
         <td><%= record.category_id%></td>
         <td><%= record.id%></td>
         <td><%= record.name%></td>
+        <td><%= link_to "Edit", {:action => 'edit' , :id => record.id } %></td>
+				<td><%= link_to "Delete", {:action => 'destroy' , :id => record.id } %></td>      
       </tr>
       <% end %>
     </table><br><br>
     <%= link_to "Back", "/back" %> 
+    
+    
   </div>
-  <%= render partial: "welcome/footer" %>
+  <%= render partial: "admin/footer" %>
 </body>

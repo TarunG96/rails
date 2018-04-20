@@ -16,7 +16,8 @@ Rails.application.routes.draw do
  
   post '/books', to: 'book#create'
   get '/add_book', to: 'book#new' 
-  get '/books', to: 'book#list'
+  get '/books', to: 'book#index'
   get '/books/:id', to: 'book#show' 
   get '/edit', to: 'book#edit'
+  get '/destroy', to: 'book#destroy'
  end
