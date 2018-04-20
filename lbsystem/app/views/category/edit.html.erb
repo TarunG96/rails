@@ -1,0 +1,9 @@
+<body>
+  <h1>Edit Category</h1>
+  <%= form_for @category, :url =>{:action => "update", :id =>@category} do |f| %>
+    <p>
+      Name: <%= f.text_field 'name' %>
+    </p>
+  <%= f.submit "Save changes" %>
+  <% end %>
+</body>

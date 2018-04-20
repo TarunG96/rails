@@ -1,18 +1,20 @@
-<h1>Edit Book Detail</h1>
-<%= form_for @book, :url =>{:action => "update", :id =>@book} do |f| %>
-  <p>
-    Title: <%= f.text_field 'title' %>
-  </p>
-  <p>
-    Price: <%= f.text_field  'price' %>
-  </p>
-  <p>
-    Subject: <%= f.collection_select :subject_id, Subject.all, :id, :name %>
-  </p>
-  <p>
-    Description<br/>
-    <%= f.text_area 'description' %>
-  </p>
+<body>
+  <h1>Edit Book Details</h1>
+  <%= form_for @book, :url =>{:action => "update", :id =>@book} do |f| %>
+    <p>
+      Name: <%= f.text_field 'name' %>
+    </p>
+    <p>
+      Author: <%= f.text_field 'author' %>
+    </p>
+    <p>
+      Price: <%= f.text_field  'price' %>
+    </p>
+    <p>
+      <%= f.label :Select_Category %>
+      <%= f.select(:category_id, options_for_select([['programming',1],['mathematics',2],['motivational',
+      3]])) %>
+    </p>
   <%= f.submit "Save changes" %>
-<% end %>
-<%= link_to 'Back', {:action => 'list' } %>
+  <% end %>
+</body>

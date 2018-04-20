@@ -2,34 +2,35 @@
 	<%= render partial: "admin/header" %>
 	<%= render partial: "admin/lframe" %>
 	<div name="right_frame" align="center" style="float:left; border:2px solid black; width:881px; height:480px;">
-		<h1>New Student Registration</h1>
-    <h1>Enter details</h1>
+		<center>
+      <h1>New Student Registration</h1>
+      <h1>Enter details</h1>
       <%= form_for @student do |b| %>
       <p>
-      <%= b.label :enter_name %>
-      <%= b.text_field :name %>
+        <%= b.label :enter_name %>
+        <%= b.text_field :name %>
       </p>
       <p>
-      <%= b.label :enter_email %>
-      <%= b.text_field :email %>
+        <%= b.label :enter_email %>
+        <%= b.text_field :email %>
       </p>
       <p>
-      <%= b.label :enter_city %>
-      <%= b.text_field :city %>
+        <%= b.label :enter_city %>
+        <%= b.text_field :city %>
       </p>
       <p>
-      <%= b.label :Department_ID %>
-      <%= b.text_field :department_id %>
+        <%= b.label :Select_Department %>
+        <%= b.select(:department_id, options_for_select([['mechanical',1],['computers',2],['humanities
+        ',3],['electronics',4]])) %>
       </p>
       <p>
-      
-      <p>
-      <%= b.submit "ADD"%>
+        <%= b.submit "ADD"%>
       </p>
       <% end %>
-		<%= link_to 'Back', {:action => 'index'} %>
-	</div>
-	<div>
+  		<%= link_to 'Back', {:action => 'index'} %>
+  	</div>
+	</center>
+  <div>
 	  <%= render partial: "admin/footer" %>
   </div>
 </body>

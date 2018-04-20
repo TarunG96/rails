@@ -1,0 +1,22 @@
+<body>
+  <center>
+    <h1>Edit Student Details</h1>
+    <%= form_for @student, :url =>{:action => "update", :id =>@student} do |f| %>
+      <p>
+        Name: <%= f.text_field 'name' %>
+      </p>
+      <p>
+        City: <%= f.text_field 'city' %>
+      </p>
+      <p>
+        Email: <%= f.text_field 'email' %>
+      </p>
+      <p>
+        <%= f.label :Select_Department %>
+        <%= f.select(:department_id, options_for_select([['mechanical',1],['computers',2],['humanities
+         ',3],['electronics',4]])) %>
+      </p>
+    <%= f.submit "Save changes" %>
+    <% end %>
+  </center>
+</body>

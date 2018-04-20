@@ -1,11 +1,18 @@
 <div name="left_frame"  align="center" style="float:left; border:2px solid black; width:30%;height:480px">
-	<div name="add_book" align="center" style="border-bottom:1px solid black;height: 160px">
-		<%= link_to "Add a new book" , "/add_book" %>
+	<div name="books_corner" align="center" style="border-bottom:1px solid black;height: 160px">
+		<%= link_to "Add a new book" , "/add_book" %><br><br>
+	  <%= link_to "View all books" , "/books" %><br><br>
+	  <%= link_to "View Categories" , "/categories" %><br><br>
+	  <%= link_to "Add a new category" , "/add_category" %>
 	</div>
-	<div name="add_student" align="center" style="border-bottom:1px solid black;height:160px">
-		<%= link_to "Register a New Student" , "/add_student" %>
+	<div name="students_corner" align="center" style="border-bottom:1px solid black;height:160px">
+		<%= link_to "Register a New Student" , "/add_student" %><br><br>
+	  <%= link_to "View all students" , "/students" %><br><br>
+	  <%= link_to "View Departments" , "/departments" %><br><br>
+	  <%= link_to "Add a new department" , "/add_department" %>
 	</div>
-	<div name="book_issue" align="center" style="border-bottom:1px solid black;height:160px">
-		<%= link_to "View Book Issue details" , "/book_issues" %>
+	<div name="book_issues_corner" align="center" style="border-bottom:1px solid black;height:160px">
+		<%= link_to "Add new Issue detail" , "/add_book_issues" %><br><br>
+	  <%= link_to "View all Issues" , "/book_issues" %>
 	</div>
 </div>

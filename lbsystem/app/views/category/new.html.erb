@@ -2,24 +2,11 @@
 	<%= render partial: "admin/header" %>
 	<%= render partial: "admin/lframe" %>
 	<div name="right_frame" align="center" style="float:left; border:2px solid black; width:881px; height:480px;">
-		<h1>Enter Book Details</h1>
-    <h1>Add new book</h1>
-      <%= form_for @book do |b| %>
+		<h1>Enter Details</h1>
+      <%= form_for @category do |b| %>
         <p>
           <%= b.label :enter_name %>
           <%= b.text_field :name %>
-        </p>
-        <p>
-          <%= b.label :enter_author %>
-          <%= b.text_field :author %>
-        </p>
-        <p>
-          <%= b.label :enter_price %>
-          <%= b.text_field :price %>
-        </p>
-        <p>
-          <%= b.label :Select_Category %>
-          <%= b.select(:category_id, options_for_select([['programming',1],['mathematics',2],['motivational',3]])) %>
         </p>
         <p>
           <%= b.submit "ADD" %>
