@@ -2,12 +2,14 @@ Rails.application.routes.draw do
   # ***** ADMIN CONTROLLER *****
   get 'admin/index'
   root to: 'admin#index' 
-  get '/show', to: 'admin#show'
-  get '/home', to: 'admin#home'	 
-  get '/forgot_password', to: 'admin#forgot'
-  get '/back', to: 'admin#home'
-  get '/index', to: 'admin#index'
-
+  get '/admin/show', to: 'admin#show'
+  get '/admin/forgot_password', to: 'admin#forgot'
+  get '/home', to: 'admin#home' 
+  get '/register', to: 'admin#new'
+  post '/create', to: 'admin#create'
+  post '/login' => 'admin#login'
+  
+ 
   # ****** BOOK ISSUES CONTROLLER  ****** 
   get '/book_issues', to: 'book_issue#index'
   get '/add_book_issues', to: 'book_issue#new'

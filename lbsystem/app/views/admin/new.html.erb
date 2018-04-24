@@ -1,0 +1,32 @@
+<body>
+  <%= render partial: "header" %>
+  <script src = "assets/javascripts/index.js" ></script>
+  <div id="admin_body" align="center">
+    <h1>New Admin registration</h1>
+    <%= form_for @admin , :url => { :controller => 'admin', :action => 'create' } do |a| %>
+      <p>
+        <%= a.label :enter_full_name %>
+        <%= a.text_field :name %>
+      </p>
+      <p>
+        <%= a.label :give_some_username %>
+        <%= a.text_field :username %>
+      </p>
+      <p>
+        <%= a.label :enter_email %>
+        <%= a.text_field :email %>
+      </p>
+      <p>
+        <%= a.label :enter_password %>
+        <%= a.password_field :password %>
+      </p>
+      <%= a.submit "Register"  %><br><br>
+      
+      Already a User? Login  <%= link_to " Here", '/index' %>
+
+    <% end %>  
+
+  </div>
+  
+
+</body>
