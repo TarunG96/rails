@@ -18,8 +18,9 @@
           <%= b.text_field :price %>
         </p>
         <p>
-          <%= b.label :Select_Category %>
-          <%= b.select(:category_id, options_for_select([['programming',1],['mathematics',2],['motivational',3]])) %>
+          <%= b.label :category_id, "Select Category" %><br />
+          <%= b.collection_select :category_id, Category.order(:id), :id, :name, include_blank: true
+          %>
         </p>
         <p>
           <%= b.submit "ADD" %>

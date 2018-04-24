@@ -17,7 +17,7 @@ class BookIssueController < ApplicationController
     if @book_issue.save
       redirect_to :action => 'index'
     else
-      render :create
+      render :new
     end
   end
 

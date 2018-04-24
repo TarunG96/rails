@@ -11,9 +11,8 @@
       Price: <%= f.text_field  'price' %>
     </p>
     <p>
-      <%= f.label :Select_Category %>
-      <%= f.select(:category_id, options_for_select([['programming',1],['mathematics',2],['motivational',
-      3]])) %>
+      <%= f.label :category_id, "Select Category" %><br />
+      <%= f.collection_select :category_id, Category.order(:id), :id, :name %>
     </p>
   <%= f.submit "Save changes" %>
   <% end %>

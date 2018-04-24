@@ -1,6 +1,6 @@
 <body>
   <h1>Edit Issue Details</h1>
-  <%= form_for @book_issue, :url =>{:action => "update", :id => @book_issue} do |f| %>
+  <%= form_for @book_issue, :url => { :action => 'update', :id => @book_issue} do |f| %>
     <p>
       Issue Date: <%= f.text_field 'issue_date' %>
     </p>

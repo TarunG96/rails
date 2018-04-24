@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   get 'book_issue/edit', to: 'book_issue#edit'
   get 'book_issue/destroy', to: 'book_issue#destroy'
   post '/book_issues', to: 'book_issue#create'
-  patch 'book_issues/update', to: 'book_issue#patch'
-
+  patch 'book_issues/update', to: 'book_issue#update'
+  
   # ***** STUDENTS CONTROLLER *****
   get '/add_student', to: 'student#new'	
   get '/students', to: 'student#index'
