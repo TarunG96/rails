@@ -19,10 +19,10 @@
         <%= b.text_field :city %>
       </p>
       <p>
-          <%= b.label :department_id, "Select Category" %><br />
-          <%= b.collection_select :department_id, Department.order(:id), :id, :name, include_blank: true
-          %>
-        </p>
+        <%= b.label :department_id, "Select Category" %><br />
+        <%= b.collection_select :department_id, Department.order(:id), :id, :name, include_blank: true
+        %>
+      </p>
       <p>
         <%= b.submit "ADD"%>
       </p>

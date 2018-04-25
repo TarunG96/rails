@@ -1,19 +1,25 @@
 <body>
-  <h1>Edit Book Details</h1>
-  <%= form_for @book, :url =>{:action => "update", :id =>@book} do |f| %>
-    <p>
-      Name: <%= f.text_field 'name' %>
-    </p>
-    <p>
-      Author: <%= f.text_field 'author' %>
-    </p>
-    <p>
-      Price: <%= f.text_field  'price' %>
-    </p>
-    <p>
-      <%= f.label :category_id, "Select Category" %><br />
-      <%= f.collection_select :category_id, Category.order(:id), :id, :name %>
-    </p>
-  <%= f.submit "Save changes" %>
-  <% end %>
+  <%= render partial: "admin/header" %>
+  <%= render partial: "admin/lframe" %>
+  <div name="right_frame" align="center" style="float:left; border:2px solid black; width:881px; height:480px;">
+    <h1>Edit Book Details</h1>
+    <%= form_for @book, :url =>{:action => "update", :id =>@book} do |f| %>
+      <p>
+        Name: <%= f.text_field 'name' %>
+      </p>
+      <p>
+        Author: <%= f.text_field 'author' %>
+      </p>
+      <p>
+        Price: <%= f.text_field  'price' %>
+      </p>
+      <p>
+        <%= f.label :category_id, "Select Category" %><br />
+        <%= f.collection_select :category_id, Category.order(:id), :id, :name %>
+      </p>
+      <%= f.submit "Save changes" %>
+    <% end %><br>
+    <%= link_to 'Back', {:action => 'index'} %>
+  </div>
+  <%= render partial: "admin/footer" %>
 </body>

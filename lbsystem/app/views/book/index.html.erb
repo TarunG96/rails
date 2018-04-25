@@ -16,12 +16,12 @@
         <td><%= record.id%></td>
         <td><%= record.name%></td>
         <td><%= record.author %></td>
+        <td><%= link_to "View", {:action => 'show' , :id => record.id } %></td>
         <td><%= link_to "Edit", {:action => 'edit' , :id => record.id } %></td>
 				<td><%= link_to "Delete", {:action => 'destroy' , :id => record.id } %></td>      
       </tr>
       <% end %>
     </table><br><br>
-    <%= link_to "Back", "/back" %>
   </div>
   <%= render partial: "admin/footer" %>
 </body>

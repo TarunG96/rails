@@ -5,20 +5,21 @@
     <h1>Books</h1>
     <table name="books" border = "1">
       <tr>
+        <th>ID</th>
         <th>NAME</th>
         <th>Author</th>
         <th>Price</th>
         <th>Category ID</th>
       </tr>
       <tr>
+        <td><%= @book.id %></td>
         <td><%= @book.name %></td>
         <td><%= @book.author %></td>
         <td><%= @book.price %></td>
         <td><%= @book.category_id %></td>
       </tr>
     </table><br><br>
-    <%= link_to "Back", "/back" %><br>
-    <%= link_to "EDIT" ,'/edit' %>
+    <%= link_to 'Back', {:action => 'index'} %>
   </div>
   <%= render partial: "admin/footer" %>
 </body>

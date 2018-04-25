@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/register', to: 'admin#new'
   post '/create', to: 'admin#create'
   post '/login' => 'admin#login'
+  get '/index' => 'admin#index'
   
  
   # ****** BOOK ISSUES CONTROLLER  ****** 
@@ -36,6 +37,7 @@ Rails.application.routes.draw do
   get 'book/edit', to: 'book#edit'
   get 'book/destroy', to: 'book#destroy'
   patch 'book/update', to: 'book#update'
+  get 'book/back', to: 'book#index'
 
   # ***** CATEGORIES CONTROLLER *****    
   get '/categories', to: 'category#index'

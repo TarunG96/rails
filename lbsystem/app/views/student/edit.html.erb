@@ -1,21 +1,27 @@
 <body>
-  <center>
-    <h1>Edit Student Details</h1>
-    <%= form_for @student, :url =>{:action => "update", :id =>@student} do |f| %>
-      <p>
-        Name: <%= f.text_field 'name' %>
-      </p>
-      <p>
-        City: <%= f.text_field 'city' %>
-      </p>
-      <p>
-        Email: <%= f.text_field 'email' %>
-      </p>
-      <p>
-        <%= f.label :department_id, "Select Department" %><br/>
-        <%= f.collection_select :department_id, Department.order(:id), :id, :name %>
-      </p>
-    <%= f.submit "Save changes" %>
-    <% end %>
-  </center>
+  <%= render partial: "admin/header" %>
+  <%= render partial: "admin/lframe" %>
+  <div name="right_frame" align="center" style="float:left; border:2px solid black; width:881px; height:480px;">
+    <center>
+      <h1>Edit Student Details</h1>
+      <%= form_for @student, :url =>{:action => "update", :id =>@student} do |f| %>
+        <p>
+          Name: <%= f.text_field 'name' %>
+        </p>
+        <p>
+          City: <%= f.text_field 'city' %>
+        </p>
+        <p>
+          Email: <%= f.text_field 'email' %>
+        </p>
+        <p>
+          <%= f.label :department_id, "Select Department" %><br/>
+          <%= f.collection_select :department_id, Department.order(:id), :id, :name %>
+        </p>
+        <%= f.submit "Save changes" %>
+      <% end %>
+    </center><br>
+    <%= link_to 'Back', {:action => 'index'} %>
+  </div>
+  <%= render partial: "admin/footer" %>
 </body>
