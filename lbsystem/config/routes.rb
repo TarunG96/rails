@@ -30,10 +30,11 @@ Rails.application.routes.draw do
   patch 'student/update', to: 'student#update'
  
   # ***** BOOKS CONTROLLER *****
+
   post '/books', to: 'book#create'
   get '/add_book', to: 'book#new' 
-  get '/books', to: 'book#index'
   get '/books/:id', to: 'book#show' 
+  get '/books', to: 'book#index'
   get 'book/edit', to: 'book#edit'
   get 'book/destroy', to: 'book#destroy'
   patch 'book/update', to: 'book#update'

@@ -25,12 +25,11 @@ class StudentController < ApplicationController
 
   def create
     @student=Student.new(name: params[:student][:name], city: params[:student][:city], email: params[:student][:email], department_id: params[:student][:department_id])    
+   @admin = Admin.all
     @student.save
-    @admin = Admin.all  
-    if 
-      @student.save
+    if @student.save
       RegisterMailer.register_confirmation(@student).deliver
-      RegisterMailer.admin_forward(@admin).deliver
+      RegisterMailer.admin_forward(@admin.first).deliver
       redirect_to :action => 'index'
     end
   end

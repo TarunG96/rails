@@ -9,7 +9,7 @@ class BookController < ApplicationController
   end
 
   def new
-    @book = Book.new
+    @book = Book.new  
   end
 
   def create
@@ -18,7 +18,7 @@ class BookController < ApplicationController
     if @book.save
       redirect_to :action => 'index'
     else
-      render :create
+      render :new
     end
   end
 
@@ -29,7 +29,7 @@ class BookController < ApplicationController
   def update
     @book = Book.find(params[:id])
     if @book.update(name: params[:book][:name], author: params[:book][:author], price: params[:book][:price], category_id: params[:book][:category_id])
-      redirect_to :action => 'index'
+      redirect_to :action => 'index' , :notice => "success"
     end
   end
   
@@ -38,7 +38,7 @@ class BookController < ApplicationController
     if @book.delete   
       redirect_to :action => 'index'   
     else   
-      render :destroy   
+      render :index  
     end   
   end   
 end
