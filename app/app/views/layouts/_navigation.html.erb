@@ -1,0 +1,8 @@
+<% if current_user %>
+<li>Hello <%= current_user.email %></li>
+<li><%= link_to "Logout" , destroy_user_session_path, :method => 'delete' %></li>
+<% else %>
+<li><%= link_to "sign In" , new_user_session_path %></li>
+<li><%= link_to "Sign Up" , new_user_registration_path %></li>
+<li><%= link_to "Sign In with facebook" , user_facebook_omniauth_authorize_path %></li>
+<% end %>
