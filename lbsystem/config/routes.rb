@@ -39,6 +39,10 @@ Rails.application.routes.draw do
   get 'book/destroy', to: 'book#destroy'
   patch 'book/update', to: 'book#update'
   get 'book/back', to: 'book#index'
+  get 'order_up' => 'book#order_up'
+  get 'order_down' => 'book#order_down'
+  get 'order_by_name_up' => 'book#order_by_name_up'
+  get 'order_by_name_down' => 'book#order_by_name_down'
 
   # ***** CATEGORIES CONTROLLER *****    
   get '/categories', to: 'category#index'

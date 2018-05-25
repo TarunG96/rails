@@ -3,11 +3,21 @@
 	<%= render partial: "admin/lframe" %>
 	<div name="right_frame" align="center" style="float:left; border:2px solid black; width:881px; height:480px;">
     <h1>Books</h1>
-    <table name="book_issue_records" border = "1">
+    <table name="book_issue_records" border = "1" >
       <tr>
         <th>Category Id</th>
-        <th>Book ID</th>
-        <th>Book Name</th>
+        <th>
+          <%=link_to "ASC", {action: 'order_up'} %>
+          <%= link_to "DESC", {action: 'order_down'} %> 
+        </th>
+        <th>
+          <%= link_to action: 'order_by_name_up' do %>
+            <%= image_tag "up.jpg" ,size: '20'%>
+          <% end %>
+          <%= link_to action: 'order_by_name_down' do %>
+            <%= image_tag "down.png" ,size: '20'%>
+          <% end %>
+        </th>
         <th>Author</th>
       </tr>
       <% @books.each do |record|%>
