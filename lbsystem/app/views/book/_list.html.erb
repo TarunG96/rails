@@ -1,0 +1,31 @@
+<table name="book_issue_records" border = "1" id="list" >
+      <tr>
+        <th>Category Id</th>
+        <th>
+          ID
+          <%=link_to "ASC", order_path(id: "id_up"), remote: true %>
+          <%= link_to "DESC",  order_path(:id => 'id_down'), remote: true %> 
+        </th>
+        <th>
+          Name
+          <%= link_to order_path(id: "name_up"), remote: true do %>
+            <%= image_tag "up.jpg" ,size: '20'%>
+          <% end %>
+          <%= link_to order_path(id: "name_down") , remote: true do %>
+            <%= image_tag "down.png" ,size: '20'%>
+          <% end %>
+        </th>
+        <th>Author</th>
+      </tr>
+      <% @books.each do |record|%>
+      <tr>
+        <td><%= record.category_id%></td>
+        <td><%= record.id%></td>
+        <td><%= record.name%></td>
+        <td><%= record.author %></td>
+        <td><%= link_to "View", {:action => 'show' , :id => record.id } %></td>
+        <td><%= link_to "Edit", {:action => 'edit' , :id => record.id } %></td>
+				<td><%= link_to "Delete", {:action => 'destroy' , :id => record.id } %></td>      
+      </tr>
+      <% end %>
+    </table>

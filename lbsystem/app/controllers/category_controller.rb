@@ -10,6 +10,7 @@ class CategoryController < ApplicationController
 
   def new
     @category = Category.new
+    @books= @category.books.new
   end
 
    def edit

@@ -21,25 +21,26 @@ class BookController < ApplicationController
     end
   end
 
-  def order_down
-    @books = Book.all.order(:id => 'desc')
-    render 'index'
+  def order
+    case params[:id]
+      when 'id_up' 
+        @books = Book.all.order(:id => 'asc')
+        #@books = Book.all
+        #render 'index'
+      when 'id_down'
+        @books = Book.all.order(:id => 'desc')
+        #@books = Book.all
+        #render 'index'
+      when 'name_up'
+        @books = Book.all.order(:name => 'asc')
+        #@books = Book.all
+        #render 'index' 
+      when 'name_down'
+        @books = Book.all.order(:name => 'desc')
+        #@books = Book.all
+        #render 'index'     
+    end
   end
-
-  def order_up
-    @books = Book.all.order(:id => 'asc')
-    render 'index'
-  end
-
-  def order_by_name_up
-    @books = Book.all.order(:name => 'asc')
-    render 'index'
-  end
-
-  def order_by_name_down
-    @books = Book.all.order(:name => 'desc')
-    render 'index'
-  end  
 
   def edit
     @book = Book.find(params[:id])
