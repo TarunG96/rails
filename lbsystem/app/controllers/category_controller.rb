@@ -10,7 +10,7 @@ class CategoryController < ApplicationController
 
   def new
     @category = Category.new
-    @books= @category.books.new
+    @books = @category.books.build
   end
 
    def edit
@@ -34,12 +34,22 @@ class CategoryController < ApplicationController
   end   
 
   def create
-    @category=Category.new(name: params[:category][:name])
+    @category=Category.new(category_params)
     @category.save
-    if @category.save
+    @books = @category.books.new(books_params)
+    if @category.save && @books.save
       redirect_to :action => 'index'
     else
-      render :create
+      render :new
     end
   end
+
+  def category_params
+    params.require(:category).permit(:name)
+  end
+
+  def books_params
+    params.require(:category).require(:book).permit(:name,:author,:price)
+  end
+
 end

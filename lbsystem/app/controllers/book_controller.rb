@@ -1,7 +1,7 @@
 class BookController < ApplicationController
 
   def index
-    @books = Book.all
+    @books = Book.paginate(:page => params[:page], per_page: 5)
   end
 
   def show
@@ -25,20 +25,12 @@ class BookController < ApplicationController
     case params[:id]
       when 'id_up' 
         @books = Book.all.order(:id => 'asc')
-        #@books = Book.all
-        #render 'index'
       when 'id_down'
         @books = Book.all.order(:id => 'desc')
-        #@books = Book.all
-        #render 'index'
       when 'name_up'
         @books = Book.all.order(:name => 'asc')
-        #@books = Book.all
-        #render 'index' 
       when 'name_down'
         @books = Book.all.order(:name => 'desc')
-        #@books = Book.all
-        #render 'index'     
     end
   end
 
