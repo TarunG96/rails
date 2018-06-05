@@ -1,3 +1,30 @@
+<style>
+  #myProgress {
+    width: 100%;
+    background-color: grey;
+}
+#myBar {
+    width: 1%;
+    height: 30px;
+    background-color: green;
+}
+</style>
+<script type="text/javascript">
+  function move() {
+    var elem = document.getElementById("myBar"); 
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+        if (width >= 100) {
+            clearInterval(id);
+        } else {
+            width++; 
+            elem.style.width = width + '%'; 
+        }
+    }
+}
+</script>
+
 <body>
 	<%= render partial: "admin/header" %>
 	<%= render partial: "admin/lframe" %>
@@ -17,18 +44,28 @@
           <%= b.label :enter_price %>
           <%= b.text_field :price %>
         </p>
+        <div id = "myProgress">
+          <p>
+          <%= b.label :enter_image %>
+          <%= b.file_field :image %>
+          </p>
+         <div id="myBar"></div>
+        </div>
         <p>
           <%= b.label :category_id, "Select Category" %><br />
           <%= b.collection_select :category_id, Category.order(:id), :id, :name, include_blank: true
           %>
         </p>
+        <%#= b.button :helo, :html{:onclick => 'move()'}%>
+        
         <p>
           <%= b.submit "ADD" %>
         </p>
         <% end %>
-		    
+	<button onclick="move()" value="clickme"></button>	    
 	</div>
-	<div>
+	
+  <div>
 	  <%= render partial: "admin/footer" %>
   </div>
 </body>

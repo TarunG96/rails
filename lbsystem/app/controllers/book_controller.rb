@@ -13,9 +13,8 @@ class BookController < ApplicationController
   end
 
   def create
-    @book = Book.create(name: params[:book][:name], author: params[:book][:author], price: params[:book][:price], category_id: params[:book][:category_id])    
-    debugger
-    if @book.create then  redirect_to :action => 'index'
+    @book = Book.new(name: params[:book][:name], author: params[:book][:author], price: params[:book][:price], category_id: params[:book][:category_id], image: params[:book][:image])    
+    if @book.save then  redirect_to :action => 'index'
     else
       render :new
     end

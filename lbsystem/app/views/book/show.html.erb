@@ -1,7 +1,7 @@
 <body>
 	<%= render partial: "admin/header" %>
 	<%= render partial: "admin/lframe" %>
-	<div name="right_frame" align="center" style="float:left; border:2px solid black; width:881px; height:480px;">
+  <div name="right_frame" align="center" style="float:left; border:2px solid black; width:881px; height:480px;">
     <h1>Books</h1>
     <table name="books" border = "1">
       <tr>
@@ -10,6 +10,7 @@
         <th>Author</th>
         <th>Price</th>
         <th>Category ID</th>
+        <th>iamge</th>
       </tr>
       <tr>
         <td><%= @book.id %></td>
@@ -17,6 +18,7 @@
         <td><%= @book.author %></td>
         <td><%= @book.price %></td>
         <td><%= @book.category_id %></td>
+        <th><%= image_tag(@book.image, size: 30) %></th>
       </tr>
     </table><br><br>
     <%= link_to 'Back', {:action => 'index'} %>
