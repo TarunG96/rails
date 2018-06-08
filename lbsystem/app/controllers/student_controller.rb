@@ -24,13 +24,12 @@ class StudentController < ApplicationController
   end
 
   def create
-   @student=Student.new(name: params[:student][:name], city: params[:student][:city], email: params[:student][:email], department_id: params[:student][:department_id],phone_no: params[:student][:phone_no])    
-   @admin = Admin.all
-    send_message
+    @student=Student.new(name: params[:student][:name], city: params[:student][:city], email: params[:student][:email], department_id: params[:student][:department_id],phone_no: params[:student][:phone_no])    
+    @admin = Admin.all
     @student.save
-    if @student.save
-      RegisterMailer.register_confirmation(@student).deliver
-      RegisterMailer.admin_forward(@admin.first).deliver
+      if @student.save
+      #RegisterWorker.perform_async(@student.id) 
+      RegisterMailer.delay.register_confirmation(@student.id)
       redirect_to :action => 'index'
     end
   end

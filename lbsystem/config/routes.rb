@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+    
+
+  require 'api_constraint'
+  namespace :api do
+    scope module: :v1,:path => "v1",constraints: ApiConstraint.new(version: 1) do
+    get '/api/v1/bss' => "bookss#my_function"
+    end
+  end
+  
+  get 'pics' => 'pic#index'
+  get 'pics/new' => 'pic#new'
+  post 'pics' => 'pic#create'
+
+
   # ***** ADMIN CONTROLLER *****
   get 'admin/index'
   root to: 'admin#index' 
