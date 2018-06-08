@@ -1,12 +1,13 @@
 class RegisterMailer < ApplicationMailer
   default from: "noreply@gmail.com"
+  include Sidekiq
   def register_confirmation(student)
-    @student = student
-    mail() to: @student.email  , subject: 'successfully registered'
+    @student = Student.find_by(id: student)
+    mail to: @student.email  , subject: 'successfully registered'
   end
   
-  def admin_forward(student)
-    @admin = student
-    mail to: @admin.email
-  end
+  #def admin_forward(student)
+  #  @admin = student
+   # mail to: @admin.email
+  #end
 end
