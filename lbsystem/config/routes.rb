@@ -2,9 +2,14 @@ Rails.application.routes.draw do
     
 
   require 'api_constraint'
+  # namespace :api do
+  #   scope module: :v1,:path => "v1",constraints: ApiConstraint.new(version: 1) do
+  #   get 'my_function' => "bookss#my_function"
+  #   end
+  # end
   namespace :api do
-    scope module: :v1,:path => "v1",constraints: ApiConstraint.new(version: 1) do
-    get '/api/v1/bss' => "bookss#my_function"
+    namespace :v1 do
+      resources :students
     end
   end
   
@@ -47,7 +52,7 @@ Rails.application.routes.draw do
 
   post '/books', to: 'book#create'
   get '/add_book', to: 'book#new' 
-  get '/books/:id', to: 'book#show' 
+  get '/books/:slug', to: 'book#show' 
   get '/books', to: 'book#index'
   get 'book/edit', to: 'book#edit'
   get 'book/destroy', to: 'book#destroy'

@@ -6,6 +6,7 @@ class StudentController < ApplicationController
 
   def index
     @students=Student.all
+    #render json: {students: @students}
   end
 
   def show 
@@ -25,11 +26,11 @@ class StudentController < ApplicationController
 
   def create
     @student=Student.new(name: params[:student][:name], city: params[:student][:city], email: params[:student][:email], department_id: params[:student][:department_id],phone_no: params[:student][:phone_no])    
-    @admin = Admin.all
+    #@admin = Admin.all
     @student.save
       if @student.save
       #RegisterWorker.perform_async(@student.id) 
-      RegisterMailer.delay.register_confirmation(@student.id)
+      #RegisterMailer.delay.register_confirmation(@student.id)
       redirect_to :action => 'index'
     end
   end

@@ -4,8 +4,10 @@ class Student < ApplicationRecord
 	has_many :books, through: :book_issues
 	validates_associated :book_issues
   mount_uploader :image, ImageUploader
-
-	def self.send_message(phone)
+  #has_many :project_leads,  class_name: "Student", foreign_key: :boss_id
+ # belongs_to :boss,  class_name: "Student", foreign_key: :staff_id
+	
+  def self.send_message(phone)
     phone_number = phone
     client = Twilio::REST::Client.new "ACa185b48c50e1fa91256a705b73daf85d","700055e74ce49a42765fb741a4e94c62"  	 
     msg = "Hello Tarun !! I'm the best :)"
